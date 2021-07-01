@@ -1,0 +1,13 @@
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <app-profile 
+            *ngIf="loadedFeature === 'profile'"
+            (valueChange)='displayEmail($event)' 
+            [emailDetails]="isEmail">
+        </app-profile>
+        <app-sub-home *ngIf="loadedFeature !== 'profile'"></app-sub-home>
+    </div>
+  </div>
+</div>
