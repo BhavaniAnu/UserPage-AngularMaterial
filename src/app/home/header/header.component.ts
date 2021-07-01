@@ -10,11 +10,9 @@ import { StorageService } from "src/app/services/storage.service";
 export class HeaderComponent implements OnInit {
   isEmail: any;
   @Output() featureSelected = new EventEmitter<string>();
-  url = '/login';
 
   constructor(private router: Router, private storageService: StorageService) {
     this.isEmail = this.storageService.get('userEmail');
-    // this.isEmail = localStorage.getItem('userEmail');
   }
 
   ngOnInit() {
@@ -22,9 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut() {
-    console.log('log out');
     this.storageService.clear('userEmail');
-    // localStorage.removeItem('userEmail');
     this.router.navigate(['/login']);
   }
 

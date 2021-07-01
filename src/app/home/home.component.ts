@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   loadedFeature = 'profile';
 
   constructor(private router: Router, private storageService: StorageService) {
-    // this.isEmail = localStorage.getItem('userEmail');
     this.isEmail = this.storageService.get('userEmail');
   }
 
@@ -24,12 +23,10 @@ export class HomeComponent implements OnInit {
   displayEmail(updateEmail) {
     this.newEmail = updateEmail;
     this.storageService.set('userEmail', this.newEmail);
-    // localStorage.setItem('userEmail', this.newEmail);
   }
 
   logOut() {
     this.storageService.clear('userEmail');
-    // localStorage.removeItem('userEmail');
     this.router.navigate(['/login']);
   }
 
